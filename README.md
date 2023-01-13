@@ -31,6 +31,21 @@ Then expand the script block of `package.json`:
 "plop": "plop"
 ```
 
+## Vitest
+To be able to test the components also via Vitest the `vite.config.js` must be extended by a test block:
+
+```js
+test: {
+  include: ['tests/**/*.test.ts', 'src/components/**/*.test.ts', 'src/composables/**/*.test.ts'],
+    environment: 'jsdom',
+    deps: {
+    inline: ['@vue']
+  }
+}
+```
+
+https://vitest.dev/
+
 ## Mock Service Worker
 It is already prepared, in the file `mocks/handlers.js` the requests are noted which should be mocked. To connect the service worker:
 
