@@ -9,8 +9,13 @@ If there is no package.json yet, initialize it with `npm init`. Then install the
 
 ## Install Packages
 
+**dependencies**
 ```bash
 npm i container-query-polyfill @tailwindcss/container-queries
+```
+
+**devDependencies**
+```bash
 npm i -D @vitejs/plugin-vue @vue/test-utils @vitest/ui vitest @babel/types @types/web-bluetooth vue-tsc postcss postcss-import postcss-nested tailwindcss plop msw jsdom cssnano autoprefixer
 ```
 
