@@ -54,7 +54,7 @@ export const isObject: (x: any) => boolean = x => typeof x === 'object'
 /**
  * Returns true if any of the passed-in functions return true when called with the given value
  */
-export const some = (...fns: Function[]): Function => (x: any): boolean => fns.some(fn => fn(x))
+export const some = <T>(...fns: Array<(x: T) => boolean>): ((x: T) => boolean) => (x: T): boolean => fns.some(fn => fn(x))
 
 
 /**
