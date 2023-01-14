@@ -1,12 +1,12 @@
 /**
  * Returns the last item in an array.
  */
-export const last = (array: any[]): any => array[array.length - 1]
+export const last = <T>(array: T[]): T => array[array.length - 1]
 
 /**
  * This function returns the last property of an object
  */
-export const lastProperty = (obj: any) : any => obj[Object.keys(obj).length - 1]
+export const lastProperty = (obj: object): object => Object.entries(obj).pop()?.[1]
 
 /**
  * Returns a function that extracts a property from an object
@@ -16,7 +16,7 @@ export const prop: <T, K extends keyof T>(k: K) => (obj: T) => T[K] = k => obj =
 /**
  * Returns true if x is equal to y and false otherwise
  */
-export const equal: (x: number) => (y: number) => boolean = x => y => x === y
+export const equal: <T>(x: T) => (y: T) => boolean = x => y => x === y
 
 
 /**
@@ -39,12 +39,12 @@ export const isNull = (x: any): boolean => x === null
 /**
  * Checks whether a value is a number
  */
-export const isNumber = (x: number): boolean => typeof x === 'number'
+export const isNumber = (x: any): boolean => typeof x === 'number'
 
 /**
  * Returns true if x is a boolean, false otherwise
  */
-export const isBoolean = (x: boolean) => typeof x === 'boolean'
+export const isBoolean = (x: any) => typeof x === 'boolean'
 
 /**
  * Checks if a given value is an object.
@@ -54,13 +54,12 @@ export const isObject: (x: any) => boolean = x => typeof x === 'object'
 /**
  * Returns true if any of the passed-in functions return true when called with the given value
  */
-export const some = (...fns: Function[]): Function => (x: any): boolean => fns.some(fn => fn(x))
-
+export const some = <T>(...fns: Array<(x: T) => boolean>): ((x: T) => boolean) => (x: T): boolean => fns.some(fn => fn(x))
 
 /**
  * Returns a function that takes one argument and returns true if that argument
  */
-export const oneOf = (...xs: any[]): (y: any) => boolean => y => xs.find(x => y === x)
+export const oneOf = (...xs: any[]): (y: any) => boolean => y => !!xs.find(x => y === x)
 
 /**
  * Returns a function that clamps a number between min and max
@@ -91,7 +90,7 @@ export const closestNumber = (val: number, arr: number[]) => arr.reduce((prev, c
 /**
  * Returns true if the length of the passed string is between min and max, inclusive.
  */
-export const checkBetweenLength = (min: number, max: number, val: string) => /^.{min, max}$/.test(val)
+export const checkBetweenLength = (min: number, max: number, val: string) => new RegExp(`^.{${min},${max}}$`, 'gm').test(val)
 
 /**
  * Finds the first key in an object that matches the given key
@@ -101,7 +100,7 @@ export const findKeyInObj = (obj: { [key: string]: any }, key: string) => Object
 /**
  * flattenObj() takes an object with nested objects and flattens them into a single object.
  */
-export const flattenObj = (obj: any, prefix: string = '', res: any = {}) =>
+export const flattenObj = (obj: any, prefix = '', res: any = {}) =>
   Object.entries(obj).reduce((r, [key, val]) => {
     const k = `${prefix}${key}`
     if (typeof val === 'object') {
