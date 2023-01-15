@@ -10,12 +10,13 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'eslint:recommended',
     '@vue/typescript',
-    'plugin:vue/base'
+    'plugin:vue/base',
+    'plugin:storybook/recommended'
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    ecmaFeatures : {
-      jsx : false
+    ecmaFeatures: {
+      jsx: false
     }
   },
   rules: {

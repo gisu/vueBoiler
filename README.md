@@ -47,3 +47,10 @@ npx cypress open
 ```
 More info about possible problems
 - https://docs.cypress.io/guides/tooling/typescript-support
+
+## Storybook
+To use Storybook 7, the following packages must be installed.
+
+```bash
+npm i -D react react-dom storybook vue-loader eslint-plugin-storybook babel-loader @babel/core @storybook/addon-essentials @storybook/addon-interactions @storybook/addon-links @storybook/blocks @storybook/testing-library @storybook/vue3 @storybook/vue3-vite
+```
