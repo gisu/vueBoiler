@@ -10,7 +10,8 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'eslint:recommended',
     '@vue/typescript',
-    'plugin:vue/base'
+    'plugin:vue/base',
+    //'./.eslintrc-auto-import.json'
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
@@ -18,6 +19,11 @@ module.exports = {
       jsx : false
     }
   },
+  // settings: {
+  //   'import/resolver': {
+  //     typescript: {}
+  //   }
+  // },
   rules: {
     'array-bracket-spacing': ['error', 'never'],
     'comma-spacing': ['error', { 'before': false, 'after': true }],
