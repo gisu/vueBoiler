@@ -11,12 +11,13 @@ module.exports = {
     'eslint:recommended',
     '@vue/typescript',
     'plugin:vue/base',
+    'plugin:storybook/recommended'
     //'./.eslintrc-auto-import.json'
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    ecmaFeatures : {
-      jsx : false
+    ecmaFeatures: {
+      jsx: false
     }
   },
   // settings: {
